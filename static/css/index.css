@@ -31,13 +31,9 @@ body {
   .toc.show {
     /* Apply the calculated left position - moved further left to accommodate wider TOC */
     left: max(20px, calc(25vw - 400px)); 
+    display: block !important;
+    opacity: 1;
   }
-}
-
-/* TOC visibility classes for scroll behavior */
-.toc.show {
-  display: block !important;
-  opacity: 1;
 }
 
 /* Custom scrollbar styling for TOC - hide it */
@@ -372,17 +368,30 @@ h2[id^="generalization-"] {
 
 /* Container for the scrollable videos */
 .video-gallery-container {
-  margin-left: calc((100% - 1150px) / 2 + 20px); /* Align with section titles */
-  max-width: calc(1150px - 20px); /* Account for the 20px left margin */
+  max-width: 1150px; /* Maximum width for large screens */
+  margin-left: auto; /* Center on small screens */
+  margin-right: auto; /* Center on small screens */
+  padding: 0 20px; /* Add padding on sides for small screens */
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden; /* Prevent vertical overflow */
   scroll-behavior: smooth; /* Smooth scrolling effect */
+  box-sizing: border-box;
    /* Hide scrollbar */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
 }
 .video-gallery-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+/* On large screens, align with section titles */
+@media (min-width: 1200px) {
+  .video-gallery-container {
+    margin-left: calc((100% - 1150px) / 2 + 20px);
+    margin-right: 0;
+    max-width: calc(1150px - 20px);
+    padding: 0;
+  }
 }
 
 /* The actual scrolling div holding the videos */
@@ -465,11 +474,18 @@ h2[id^="generalization-"] {
 .gallery-caption-container {
     max-width: 1150px; /* Match section width */
     margin: 15px auto 0 auto;
-    margin-left: calc((100% - 1150px) / 2 + 20px); /* Align with section titles */
     padding: 0 20px;
     box-sizing: border-box;
     display: flex; /* Make it a flex container */
     align-items: center; /* Vertically center buttons and text */
+}
+
+/* On large screens, align with section titles */
+@media (min-width: 1200px) {
+  .gallery-caption-container {
+    margin-left: calc((100% - 1150px) / 2 + 20px);
+    margin-right: auto;
+  }
 }
 
 /* Specific style adjustments for the gallery caption text */
@@ -478,12 +494,40 @@ h2[id^="generalization-"] {
     margin-top: 0;
     text-align: justify;
     flex: 1; /* Allow caption to take remaining space */
-    margin-right: calc((100% - 1150px) / 2 + 170px); /* Match non-gallery right boundary */
+}
+
+/* On large screens, add right margin to caption text */
+@media (min-width: 1200px) {
+  .figure-caption.gallery-caption {
+    margin-right: calc((100% - 1150px) / 2 + 170px);
+  }
 }
 
 /* Justify align all figure captions */
 .figure-caption {
     text-align: justify !important;
+}
+
+/* Responsive styles for non-gallery figure captions (Generalization #1, #4, #5, #7, #9) */
+.figure-caption.non-gallery-caption {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: calc(1150px - 310px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* On large screens, use the symmetric margins */
+@media (min-width: 1200px) {
+  .figure-caption.non-gallery-caption {
+    width: calc(1150px - 310px);
+    margin-left: calc((100% - 1150px) / 2 + 155px);
+    margin-right: calc((100% - 1150px) / 2 + 155px);
+    padding: 0;
+  }
 }
 /* --- End Video Gallery Styles --- */
 
@@ -496,11 +540,24 @@ h2[id^="generalization-"] {
 .sim2real-timeline-container {
   overflow-x: auto;
   scroll-behavior: smooth;
-  max-width: calc(1150px - 20px); /* Match gallery container width */
-  margin-left: calc((100% - 1150px) / 2 + 20px); /* Align with section titles and galleries */
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  box-sizing: border-box;
   /* Hide scrollbar */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* On large screens, align with section titles and galleries */
+@media (min-width: 1200px) {
+  .sim2real-timeline-container {
+    max-width: calc(1150px - 20px);
+    margin-left: calc((100% - 1150px) / 2 + 20px);
+    margin-right: 0;
+    padding: 0;
+  }
 }
 
 .sim2real-timeline-container::-webkit-scrollbar {
