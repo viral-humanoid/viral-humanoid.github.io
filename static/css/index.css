@@ -1,0 +1,680 @@
+body {
+  /* font-family: 'Noto Sans', sans-serif; */
+  font-family: 'Roboto Mono', monospace;
+}
+
+.toc {
+  width: 280px; /* Increased from 250px */
+  /* font-family: 'Roboto Mono', monospace; */
+  font-family: 'Google Sans', sans-serif;
+  position: fixed;
+  top: 100px;
+  /* Hide TOC by default */
+  display: none; 
+  /* left: max(30px, calc(25vw - 330px)); */ /* Move left positioning into media query */
+  z-index: 1000; /* Add a high z-index to ensure TOC stays on top */
+  /* Add scrolling capability */
+  max-height: calc(100vh - 280px); /* Viewport height minus top offset and some padding */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 10px; /* Add some padding to prevent content from touching scrollbar */
+  box-sizing: border-box;
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  /* Add smooth transition */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Media Query: Apply styles only when viewport width is 1400px or wider */
+@media (min-width: 1400px) {
+  .toc.show {
+    /* Apply the calculated left position - moved further left to accommodate wider TOC */
+    left: max(20px, calc(25vw - 400px)); 
+  }
+}
+
+/* TOC visibility classes for scroll behavior */
+.toc.show {
+  display: block !important;
+  opacity: 1;
+}
+
+/* Custom scrollbar styling for TOC - hide it */
+.toc::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.toc h3 {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.toc hr {
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: 15px;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li {
+  margin-bottom: 6px;
+}
+
+.toc li.toc-subsection {
+  margin-bottom: 4px;
+}
+
+.toc li.toc-subsection a {
+  font-size: 14px; /* Make subsections smaller than main sections */
+}
+
+.toc a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.toc a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.toc a.active {
+  color: #76b900;
+  font-weight: 700;
+  position: relative;
+  padding-left: 12px;
+}
+
+.toc a.active::before {
+  content: "|";
+  position: absolute;
+  left: 0;
+  color: #76b900;
+  font-weight: 700;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: #555 !important; /* Darker gray color for author names */
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+
+.has-bg-img { 
+  background: url('/static/images/toss.jpeg')center center;
+   background-size:cover; }
+
+
+
+.overlay {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+background-color: rgba(0, 0, 0, 0.4); /* 40% opacity black */
+z-index: 1; /* Make sure it's behind the text */
+transition: opacity 1.0s;
+}
+  
+.hero-body,
+.hero-head,
+.hero-foot {
+  z-index: 2; /* Ensure text is above the overlay */
+  transition: opacity 1.0s;
+}
+
+/* --- Video Gallery Styles (adapted from VideoMimic) --- */
+
+/* Reduce spacing between sections */
+.section {
+    padding: 1.5rem 1.5rem; /* Reduced from Bulma's default 3rem 1.5rem */
+}
+
+/* Justify align text in sections */
+.section p {
+    text-align: justify;
+}
+
+/* Constrain section titles to align with gallery containers */
+.section .container .column.is-full-width > h2.title,
+.section .container > h2.title {
+    max-width: 1150px; /* Match gallery container width */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px; /* Match gallery padding */
+    padding-right: 20px; /* Match gallery padding */
+    white-space: nowrap; /* Prevent title from wrapping to multiple lines */
+}
+
+/* Apply black background and white text to all section titles */
+.section .container .column.is-full-width > h2.title,
+.section .container > h2.title {
+    background: #000 !important; /* Black background */
+    color: #fff !important; /* White text */
+    display: inline-block !important; /* Make background fit content width */
+    padding: 8px 16px !important; /* Add padding like VideoMimic */
+    margin-left: calc((100% - 1150px) / 2 + 20px) !important; /* Align with gallery videos */
+    text-align: left !important; /* Override inline styles */
+}
+
+/* For screens smaller than 1150px, just use 20px margin */
+@media (max-width: 1150px) {
+    .section .container .column.is-full-width > h2.title,
+    .section .container > h2.title {
+        margin-left: 20px !important;
+    }
+}
+
+/* Make non-generalization section titles 1.5rem */
+.section .container .column.is-full-width > h2.title.is-2,
+.section .container .column.is-full-width > h2.title.is-3:not([id^="generalization-"]),
+.section .container > h2.title,
+.section .container .column > h2.title.is-2 {
+    font-size: 1.5rem !important; /* Set font size for main section titles */
+}
+
+/* Ensure Abstract title has black background and white text */
+#abstract-title {
+    background: #000 !important;
+    color: #fff !important;
+    display: inline-block !important;
+    padding: 8px 16px !important;
+    text-align: left !important;
+}
+
+/* Make Generalization titles smaller - target only generalization sections by ID */
+h2[id^="generalization-"] {
+    font-size: 1.2rem !important; /* Reduced from default ~2rem */
+    background: #000 !important; /* Black background */
+    color: #fff !important; /* White text */
+    display: inline-block !important; /* Make background fit content width */
+    padding: 8px 16px !important; /* Add padding like VideoMimic */
+    margin-left: calc((100% - 1150px) / 2 + 20px) !important; /* Align with gallery videos: center offset + gallery padding */
+    text-align: left !important; /* Override inline styles */
+}
+
+/* For screens smaller than 1150px, just use 20px margin */
+@media (max-width: 1150px) {
+    h2[id^="generalization-"] {
+        margin-left: 20px !important;
+    }
+}
+
+/* New outer wrapper for the whole section */
+.video-gallery-section {
+    margin-top: 0.75rem; /* Match Bulma's default .columns margin-top */
+    margin-bottom: 20px; /* Reduced space below the gallery section */
+    width: 100vw; /* Make the section span the full viewport width */
+    position: relative; /* Establishes a positioning context, good practice with calc for margins */
+    margin-left: calc((100% - 100vw) / 2); /* Calculates the negative margin to align left edge with viewport */
+    box-sizing: border-box; /* Ensures padding/border don't add to the 100vw width */
+}
+
+/* Container for the scrollable videos */
+.video-gallery-container {
+  margin-left: calc((100% - 1150px) / 2 + 20px); /* Align with section titles */
+  max-width: calc(1150px - 20px); /* Account for the 20px left margin */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical overflow */
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+   /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+.video-gallery-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* The actual scrolling div holding the videos */
+.video-gallery {
+  display: flex;
+  gap: 15px; /* Space between videos */
+  padding: 0; /* No padding - will align with section boundary */
+  padding-bottom: 15px; /* Add more space at the bottom for captions */
+  box-sizing: border-box;
+  width: max-content; /* Ensure it fits all videos horizontally */
+  margin: 0;
+}
+
+/* Container for each individual video + caption pair */
+.gallery-video-item {
+  flex: 0 0 auto; /* Prevent items from shrinking/growing in the flex context */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* Space between video and caption */
+}
+
+.gallery-video {
+  height: 220px;  /* Set a fixed height for all videos. Adjust this value as desired. */
+  width: auto;    /* Allow width to adjust to maintain original aspect ratio */
+  border-radius: 10px; /* Keep the rounded corners */
+  box-sizing: border-box;
+  background-color: #fff; /* White background */
+  /* Add a box-shadow for the glow/shadow effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Individual video captions that move with each video */
+.gallery-video-caption {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  white-space: nowrap; /* Prevent caption from wrapping */
+  padding: 4px 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the navigation buttons */
+.gallery-nav {
+  background-color: rgba(40, 40, 40, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  margin: 0 5px;
+  flex-shrink: 0;
+  line-height: 1;
+  padding: 0;
+  text-align: center;
+}
+.gallery-nav:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+/* Container for the navigation buttons */
+.gallery-nav-controls {
+    display: flex;
+    align-items: center;
+    margin-right: 15px; /* Add space between buttons and caption text */
+}
+
+/* Container to center the gallery caption and buttons */
+.gallery-caption-container {
+    max-width: 1150px; /* Match section width */
+    margin: 15px auto 0 auto;
+    margin-left: calc((100% - 1150px) / 2 + 20px); /* Align with section titles */
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex; /* Make it a flex container */
+    align-items: center; /* Vertically center buttons and text */
+}
+
+/* Specific style adjustments for the gallery caption text */
+.figure-caption.gallery-caption {
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: justify;
+    flex: 1; /* Allow caption to take remaining space */
+    margin-right: calc((100% - 1150px) / 2 + 170px); /* Match non-gallery right boundary */
+}
+
+/* Justify align all figure captions */
+.figure-caption {
+    text-align: justify !important;
+}
+/* --- End Video Gallery Styles --- */
+
+/* --- Timeline Styles (Covariant-inspired with scrolling) --- */
+.sim2real-timeline-wrapper {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.sim2real-timeline-container {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  max-width: calc(1150px - 20px); /* Match gallery container width */
+  margin-left: calc((100% - 1150px) / 2 + 20px); /* Align with section titles and galleries */
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.sim2real-timeline-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.sim2real-timeline {
+  position: relative;
+  min-width: 2000px; /* Increased to ensure scrolling */
+  margin: 0 auto;
+  padding: 40px 20px 20px; /* Reduced bottom padding */
+}
+
+.sim2real-timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px; /* Reduced from 60px to extend the line */
+  right: -3450px; /* Reduced from 60px to extend the line */
+  top: calc(100% - 54px); /* Position line dynamically relative to container bottom */
+  border-bottom: 2px dotted #e3e3e3;
+  z-index: 0;
+}
+
+.sim2real-timeline-items {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.sim2real-timeline-item {
+  flex: 0 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 50px; /* Reserve space for dot and date at bottom */
+}
+
+.sim2real-video {
+  width: 280px; /* Increased from 200px */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sim2real-video:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.sim2real-video.active {
+  border: 3px solid #E1EBD7; /* Highlight active video */
+  box-shadow: 0 0 20px rgba(225, 235, 215, 0.5);
+}
+
+.sim2real-card {
+  display: flex;
+  background: #E1EBD7;
+  border-radius: 18px;
+  padding: 12px 22px; /* Increased padding */
+  font-size: 16px; /* Increased from 14px */
+  font-weight: 600;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  line-height: 1.3;
+  max-width: 280px; /* Increased from 200px */
+  min-height: 70px; /* Keep minimum height but allow flexibility */
+  align-items: center;
+  justify-content: center;
+  margin-bottom: auto; /* Push dot to bottom */
+}
+
+.sim2real-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #E1EBD7;
+  position: absolute;
+  bottom: 26px; /* Fixed distance from bottom of item */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2; /* Ensure dot is above the line */
+}
+
+.sim2real-year {
+  font-weight: 600;
+  font-size: 14px;
+  color: #444;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* Sim2Real navigation buttons now use gallery-nav styles */
+
+.sim2real-story {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 60px;
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sim2real-story-block h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.sim2real-story-block p {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* Enlarged video display */
+.sim2real-enlarged-container {
+  max-width: 960px;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.sim2real-enlarged-info {
+  margin-bottom: 15px;
+}
+
+.sim2real-enlarged-info .title {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.sim2real-enlarged-date {
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+  margin: 0;
+}
+
+.sim2real-enlarged-video {
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .sim2real-timeline {
+    padding: 40px 20px 60px;
+    min-width: auto;
+  }
+  .sim2real-timeline::before {
+    left: 20px;
+    right: 20px;
+    top: 240px;
+  }
+  .sim2real-timeline-items {
+    flex-direction: row;
+    gap: 30px;
+  }
+  .sim2real-video {
+    width: 150px;
+  }
+  .sim2real-story {
+    grid-template-columns: 1fr;
+  }
+}
+/* --- End Timeline Styles --- */
